@@ -12,7 +12,7 @@ const META = `/*//META{"name":"Nox","description":"A theme for Discord loosely b
 `;
 
 const LICENSE = `/*
- *  Copyright (c) 2016-2017 Lilian Tedone, 2017-2020 Zack Rauen
+ *  Copyright (c) 2016-2017 Lilian Tedone, 2017-2019 Zack Rauen
  * 
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -74,14 +74,7 @@ const directories = getDirectories("./src").map(d => `./${d}/*.scss`.replace("\\
 
 const fileList = ["./src/index.css", "./src/*.scss", ...directories];
 
-const sassOptions = {
-	functions:
-	{
-		"inline-image($file)": sassInlineImage()
-	},
-	importer: globImporter(),
-	outputStyle: "compressed"
-};
+const sassOptions = {functions: {"inline-image($file)": sassInlineImage()}, importer: globImporter()};
 
 gulp.task("import", function () {
   return gulp.src("./src/index.scss")
